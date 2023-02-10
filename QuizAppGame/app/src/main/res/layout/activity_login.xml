@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bc_register"
+    android:background="@drawable/bc_login"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".RegisterActivity">
-
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
         android:paddingBottom="20dp">
 
         <EditText
-            android:id="@+id/register_username"
+            android:id="@+id/login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -34,21 +33,7 @@
             tools:ignore="RtlHardcoded" />
 
         <EditText
-            android:id="@+id/register_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/ic_background_name"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:padding="15dp"
-            android:textSize="18sp"
-            tools:ignore="RtlHardcoded" />
-
-        <EditText
-            android:id="@+id/register_password"
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -61,7 +46,7 @@
             tools:ignore="RtlHardcoded" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_Register"
+            android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -69,21 +54,19 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/ic_button_start"
             android:gravity="center"
-            android:hint="@string/password"
             android:padding="15dp"
-            android:text="@string/register" />
+            android:text="@string/login" />
 
     </LinearLayout>
 
 
     <TextView
-        android:id="@+id/change_to_login"
+        android:id="@+id/change_to_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:text="@string/already_have_account"
+        android:text="@string/create_the_account"
         android:textSize="20sp"
         android:textStyle="bold" />
-
 </LinearLayout>

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.QuizAppGame" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">#8BC34A</item>
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">#A1B72C</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppBarStyle1"  parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#DAE797</item>
+    </style>
+
 </resources>

@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bc_start"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <TextView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:textStyle="italic"
+        android:shadowColor="#CDC1C1"
+        android:shadowDx="-2"
+        android:shadowDy="-2"
+        android:shadowRadius="1"
         android:text="@string/welcome"
-        android:textColor="#DC171616"
-        android:textSize="30sp" />
+        android:textColor="#DC000000"
+        android:textSize="30sp"
+        android:textStyle="italic" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,51 +33,25 @@
         android:layout_marginStart="75dp"
         android:layout_marginEnd="75dp"
         android:background="@drawable/back_of_login"
-        android:orientation="vertical"
-        android:paddingBottom="20dp">
-
-
-        <EditText
-            android:id="@+id/name_editText"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/ic_background_name"
-            android:gravity="left"
-            android:hint="@string/name"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingRight="10dp"
-            tools:ignore="RtlHardcoded" />
-        <EditText
-            android:id="@+id/name_editText"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/ic_background_name"
-            android:gravity="left"
-            android:hint="@string/name"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingRight="10dp"
-            tools:ignore="RtlHardcoded" />
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_start"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_margin="15dp"
             android:background="@drawable/ic_button_start"
-            android:text="@string/start" />
+            android:text="@string/login" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_button_start"
+            android:text="@string/register" />
 
     </LinearLayout>
 
