@@ -3,9 +3,11 @@ package com.example.quizappgame
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.UUID
@@ -47,10 +49,10 @@ class MainAdminPanel : AppCompatActivity() {
         if (FirebaseAuth.getInstance().currentUser == null) {
             FirebaseAuth.getInstance().signInAnonymously()
                 .addOnSuccessListener {
-
+                   Log.d("ad","Works")
                 }
                 .addOnFailureListener {
-
+                    Log.d("ad","bad")
                 }
         }
     }
