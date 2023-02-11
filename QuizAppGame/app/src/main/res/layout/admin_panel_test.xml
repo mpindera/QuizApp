@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainAdminPanel"
-    tools:viewBindingIgnore="true">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -18,12 +14,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/quizName"
+            <TextView
+                android:id="@+id/quizName2"
                 android:layout_width="match_parent"
-                android:padding="15dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/quiz_name" />
+                android:padding="15dp" />
 
             <CheckBox
                 android:id="@+id/chackedVisible"
@@ -38,14 +33,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#6AF0FF00"
-                android:text="@string/add"
+                android:text="Update"
                 android:textColor="@color/black" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/quizRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
 </LinearLayout>

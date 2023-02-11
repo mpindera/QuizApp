@@ -1,18 +1,20 @@
 package com.example.quizappgame
 
-import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.UUID
 
 class MainAdminPanel : AppCompatActivity() {
+    lateinit var recycler: RecyclerView
+    var textList = mutableListOf<QuizModel>()
     private lateinit var quizName: EditText
     private lateinit var addToQuiz: Button
     private lateinit var chackedVisible: CheckBox
@@ -23,6 +25,7 @@ class MainAdminPanel : AppCompatActivity() {
         addToQuiz = findViewById(R.id.addToQuiz)
         quizName = findViewById(R.id.quizName)
         chackedVisible = findViewById(R.id.chackedVisible)
+        recycler = findViewById(R.id.quizRecycler)
 
 
         addToQuiz.setOnClickListener {
@@ -33,6 +36,8 @@ class MainAdminPanel : AppCompatActivity() {
             val quizModel = QuizModel(id, name, visible, 0)
             uploadQuiz(quizModel)
         }
+        recycler.layoutManager = LinearLayoutManager(applicationContext)
+        recycler.adapter = QuizAdapter(textList)
     }
 
     private fun uploadQuiz(quizModel: QuizModel) {
@@ -44,15 +49,15 @@ class MainAdminPanel : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-
-
         if (FirebaseAuth.getInstance().currentUser == null) {
             FirebaseAuth.getInstance().signInAnonymously()
                 .addOnSuccessListener {
-                   Log.d("ad","Works")
+                    Log.d("ad", "Works")
+
+
                 }
                 .addOnFailureListener {
-                    Log.d("ad","bad")
+                    Log.d("ad", "bad")
                 }
         }
     }
