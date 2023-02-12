@@ -9,7 +9,6 @@ import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.UUID
 
@@ -27,15 +26,17 @@ class MainAdminPanel : AppCompatActivity() {
         chackedVisible = findViewById(R.id.chackedVisible)
         recycler = findViewById(R.id.quizRecycler)
 
-        val todoList = mutableListOf(QuizModel("1", "abc2", true, 1))
+        val todoList = mutableListOf(QuizModel())
         val adapter = QuizAdapter(todoList)
 
+
+
         addToQuiz.setOnClickListener {
-            val id = UUID.randomUUID().toString()
+            val idQuiz = UUID.randomUUID().toString()
             val name = quizName.text.toString()
             val visible = chackedVisible.isChecked
-
-            val quizModel = QuizModel(id, name, visible, 0)
+            Log.d("idQuiza", idQuiz)
+            val quizModel = QuizModel(idQuiz, name, visible, 0)
 
             todoList.add(quizModel)
             adapter.notifyItemInserted(todoList.size - 1)
@@ -47,7 +48,7 @@ class MainAdminPanel : AppCompatActivity() {
 
     }
 
-    private fun loadQuiz() {
+     fun loadQuiz() {
         FirebaseFirestore.getInstance().collection("quiz").get()
             .addOnSuccessListener { querySnapshot ->
                 val quizList = mutableListOf<QuizModel>()
@@ -60,7 +61,8 @@ class MainAdminPanel : AppCompatActivity() {
                 recycler.layoutManager = LinearLayoutManager(this)
             }
             .addOnFailureListener { exception ->
-                
+                exception.stackTrace
+
             }
     }
 
@@ -82,6 +84,8 @@ class MainAdminPanel : AppCompatActivity() {
                 .addOnFailureListener {
                     Log.d("ad", "bad")
                 }
+        } else {
+            loadQuiz()
         }
     }
 }

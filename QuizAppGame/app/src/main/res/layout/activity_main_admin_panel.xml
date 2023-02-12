@@ -21,9 +21,9 @@
             <EditText
                 android:id="@+id/quizName"
                 android:layout_width="match_parent"
-                android:padding="15dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/quiz_name" />
+                android:hint="@string/quiz_name"
+                android:padding="15dp" />
 
             <CheckBox
                 android:id="@+id/chackedVisible"
@@ -40,12 +40,12 @@
                 android:backgroundTint="#6AF0FF00"
                 android:text="@string/add"
                 android:textColor="@color/black" />
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/quizRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

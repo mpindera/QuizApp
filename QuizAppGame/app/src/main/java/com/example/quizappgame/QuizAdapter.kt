@@ -1,15 +1,14 @@
 package com.example.quizappgame
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
+import com.google.firebase.firestore.FirebaseFirestore
 
 class QuizAdapter(
     private var items: List<QuizModel>
@@ -31,9 +30,37 @@ class QuizAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val quizName2 = holder.itemView.findViewById<TextView>(R.id.quizName2)
         quizName2.text = items[position].getQuizName()
+
         val chackedVisible = holder.itemView.findViewById<CheckBox>(R.id.chackedVisible)
         chackedVisible.isChecked = items[position].getVisible()
+
+        val positionOfIDQuiz = items[position]
+        val buttonUpdate = holder.itemView.findViewById<Button>(R.id.updateQuiz)
+        val buttonDelete = holder.itemView.findViewById<Button>(R.id.deleteQuiz)
+
+        buttonUpdate.setOnClickListener {
+            FirebaseFirestore.getInstance().collection("quiz")
+                .document(positionOfIDQuiz.getQuizID())
+                .update("quizName", quizName2.text.toString(), "visible", chackedVisible.isChecked)
+            Toast.makeText(
+                holder.itemView.context, "Setting has been updated", Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        buttonDelete.setOnClickListener {
+            FirebaseFirestore.getInstance().collection("quiz")
+                .document(positionOfIDQuiz.getQuizID()).delete()
+            Toast.makeText(
+                holder.itemView.context, "Quiz has been deleted", Toast.LENGTH_SHORT
+            ).show()
+
+            val updatedQuizList = items.filter { it.getQuizID() != positionOfIDQuiz.getQuizID() }
+
+            items = updatedQuizList
+            notifyDataSetChanged()
+        }
     }
+
 }
 
 

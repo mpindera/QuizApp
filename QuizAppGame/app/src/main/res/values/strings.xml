@@ -13,4 +13,6 @@
     <string name="quiz_name">Quiz Name</string>
     <string name="show_in_main">Show in main</string>
     <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>
