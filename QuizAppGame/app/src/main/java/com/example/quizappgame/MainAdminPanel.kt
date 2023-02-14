@@ -48,7 +48,7 @@ class MainAdminPanel : AppCompatActivity() {
 
     }
 
-     fun loadQuiz() {
+     private fun loadQuiz() {
         FirebaseFirestore.getInstance().collection("quiz").get()
             .addOnSuccessListener { querySnapshot ->
                 val quizList = mutableListOf<QuizModel>()

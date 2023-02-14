@@ -1,5 +1,7 @@
 package com.example.quizappgame
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.coroutines.coroutineContext
 
 class QuizAdapter(
     private var items: List<QuizModel>
@@ -37,6 +40,13 @@ class QuizAdapter(
         val positionOfIDQuiz = items[position]
         val buttonUpdate = holder.itemView.findViewById<Button>(R.id.updateQuiz)
         val buttonDelete = holder.itemView.findViewById<Button>(R.id.deleteQuiz)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, QuestionActivity::class.java)
+            intent.putExtra("id", positionOfIDQuiz.getQuizID())
+            holder.itemView.context.startActivity(intent)
+        }
+
 
         buttonUpdate.setOnClickListener {
             FirebaseFirestore.getInstance().collection("quiz")
