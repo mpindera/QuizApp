@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.UUID
 
 class MainAdminPanel : AppCompatActivity() {
-    lateinit var recycler: RecyclerView
+    private lateinit var recycler: RecyclerView
     private lateinit var quizName: EditText
     private lateinit var addToQuiz: Button
     private lateinit var chackedVisible: CheckBox
@@ -48,7 +48,7 @@ class MainAdminPanel : AppCompatActivity() {
 
     }
 
-     private fun loadQuiz() {
+    private fun loadQuiz() {
         FirebaseFirestore.getInstance().collection("quiz").get()
             .addOnSuccessListener { querySnapshot ->
                 val quizList = mutableListOf<QuizModel>()

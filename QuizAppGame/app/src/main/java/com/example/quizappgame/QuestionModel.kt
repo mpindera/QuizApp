@@ -4,7 +4,7 @@ class QuestionModel {
 
     private var questionID: String
     private var quizID: String
-    private var question: String
+    var question: String
 
     private var choice1: String
     private var choice2: String
@@ -48,5 +48,76 @@ class QuestionModel {
         this.visible = visible
     }
 
+    fun getQuestionID(): String {
+        return questionID
+    }
 
+    fun setQuestionID(questionID: String) {
+        this.questionID = questionID
+    }
+
+    fun getQuizQuestion(): String {
+        return question
+    }
+
+    fun setQuizQuestion(question: String) {
+        this.question = question
+    }
+
+    fun getQuizID(): String {
+        return quizID
+    }
+
+    fun setQuizID(quizID: String) {
+        this.quizID = quizID
+    }
+
+    //E/SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+    fun getChoice1(): String {
+        return choice1
+    }
+
+    fun setChoice1(choice1: String) {
+        this.choice1 = choice1
+    }
+
+    fun getChoice2(): String {
+        return choice2
+    }
+
+    fun setChoice2(choice2: String) {
+        this.choice2 = choice2
+    }
+
+    fun getChoice3(): String {
+        return choice3
+    }
+
+    fun setChoice3(choice3: String) {
+        this.choice3 = choice3
+    }
+
+    fun getChoice4(): String {
+        return choice4
+    }
+
+    fun setChoice4(choice4: String) {
+        this.choice4 = choice4
+    }
+
+    fun getCorrectAnswer(): String {
+        return correctAnswer
+    }
+
+    fun setCorrectAnswer(correctAnswer: String) {
+        this.correctAnswer = correctAnswer
+    }
+
+    fun getVisible(): Boolean {
+        return visible
+    }
+
+    fun setVisible(visible: Boolean) {
+        this.visible = visible
+    }
 }

@@ -18,11 +18,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonLogin.setOnClickListener {
             startActivity(loginIntent)
-            finish()
         }
         binding.buttonRegister.setOnClickListener {
             startActivity(registerIntent)
-            finish()
         }
     }
 }

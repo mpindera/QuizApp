@@ -100,7 +100,7 @@
         android:text="@string/show" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/uploadQuestion"
+        android:id="@+id/uploadQuestionToList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/accept_question" />

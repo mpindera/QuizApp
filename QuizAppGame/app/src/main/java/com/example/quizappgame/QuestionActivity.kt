@@ -1,15 +1,15 @@
 package com.example.quizappgame
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.RadioButton
+import android.util.Log
+import android.widget.*
 import com.example.quizappgame.databinding.ActivityQuestionBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import org.w3c.dom.Text
 import java.util.*
 
 class QuestionActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityQuestionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,48 +17,72 @@ class QuestionActivity : AppCompatActivity() {
         binding = ActivityQuestionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val quizID = intent.getStringExtra("id")
+        val uploadQuestionToList = binding.uploadQuestionToList
+        val questionTitle = binding.questionTitle
+        val showCheckBox = binding.showCheckBox
 
-        binding.uploadQuestion.setOnClickListener {
+        val radioGroup = binding.radioGroup
+
+        val choiceFirst = binding.choice1
+        val choiceSecond = binding.choice2
+        val choiceThird = binding.choice3
+        val choiceFourth = binding.choice4
+
+        val quizID = intent.getStringExtra("id")
+        Log.d("ddod", quizID.toString())
+        uploadQuestionToList.setOnClickListener {
+            Log.d("ddod", quizID.toString())
             var answer = ""
             val questionID = UUID.randomUUID().toString()
-            val question = binding.questionTitle.text.toString()
-            val choice1 = binding.choice1.text.toString()
-            val choice2 = binding.choice2.text.toString()
-            val choice3 = binding.choice3.text.toString()
-            val choice4 = binding.choice4.text.toString()
-            val visible: Boolean = binding.showCheckBox.isChecked
-            val a = findViewById<RadioButton>(binding.radioGroup.checkedRadioButtonId)
+            val question = questionTitle.text.toString()
+
+            val choiceFirst1 = choiceFirst.text.toString()
+            val choiceSecond2 = choiceSecond.text.toString()
+            val choiceThird3 = choiceThird.text.toString()
+            val choiceFourth4 = choiceFourth.text.toString()
+
+            val visible: Boolean = showCheckBox.isChecked
+            val a = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
             when (a.text.toString()) {
                 "1" -> {
-                    answer = choice1
+                    answer = choiceFirst1
                 }
                 "2" -> {
-                    answer = choice2
+                    answer = choiceSecond2
                 }
                 "3" -> {
-                    answer = choice3
+                    answer = choiceThird3
                 }
                 "4" -> {
-                    answer = choice4
+                    answer = choiceFourth4
                 }
             }
-            FirebaseFirestore.getInstance().collection("question").document(questionID)
-                .set(
-                    mapOf(
-                        "questionID" to questionID,
-                        "quizID" to quizID,
-                        "question" to question,
-                        "choice1" to choice1,
-                        "choice2" to choice2,
-                        "choice3" to choice3,
-                        "choice4" to choice4,
-                        "correctAnswer" to answer,
-                        "visible" to visible
+            if (question.isNotEmpty() && choiceFirst1.isNotEmpty() && choiceSecond2.isNotEmpty()
+                && choiceThird3.isNotEmpty() && choiceFourth4.isNotEmpty() && answer.isNotEmpty()) {
+                FirebaseFirestore.getInstance().collection("question").document(questionID)
+                    .set(
+                        mapOf(
+                            "questionID" to questionID,
+                            "quizID" to quizID,
+                            "question" to question,
+                            "choice1" to choiceFirst1,
+                            "choice2" to choiceSecond2,
+                            "choice3" to choiceThird3,
+                            "choice4" to choiceFourth4,
+                            "correctAnswer" to answer,
+                            "visible" to visible
+                        )
                     )
-                )
-
-
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Question added successfully!", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(this, "Failed to add question: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
