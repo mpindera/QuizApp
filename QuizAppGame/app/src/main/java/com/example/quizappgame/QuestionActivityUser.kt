@@ -110,23 +110,24 @@ class QuestionActivityUser : AppCompatActivity() {
     }
 
     private fun showQsOneByOne(i: Int) {
-        val questionModel: QuestionModel = questionModelList[i]
+        if (i >= 0 && i < questionModelList.size) {
+            val questionModel: QuestionModel = questionModelList[i]
+            val quizQuestion = findViewById<TextView>(R.id.quizQuestionText)
 
-        val quizQuestion = findViewById<TextView>(R.id.quizQuestionText)
-
-        quizQuestion.text = questionModel.getQuizQuestion()
-        Log.d("list23", "${quizQuestion.text}")
+            quizQuestion.text = questionModel.getQuizQuestion()
+            Log.d("list23", "${quizQuestion.text}")
 
 
 
-        answer = questionModel.getCorrectAnswer()
+            answer = questionModel.getCorrectAnswer()
 
-        Log.d("list23", answer)
+            Log.d("list23", answer)
 
-        firstOption.text = questionModel.getChoice1()
-        secondOption.text = questionModel.getChoice2()
-        thirdOption.text = questionModel.getChoice3()
-        fourthOption.text = questionModel.getChoice4()
+            firstOption.text = questionModel.getChoice1()
+            secondOption.text = questionModel.getChoice2()
+            thirdOption.text = questionModel.getChoice3()
+            fourthOption.text = questionModel.getChoice4()
+        }
     }
 
     override fun onResume() {
