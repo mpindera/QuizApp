@@ -7,7 +7,7 @@
     android:background="@drawable/bc_start"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".account.login.MainActivity"
     >
 
     <TextView

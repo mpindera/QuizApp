@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".QuestionActivity">
+    tools:context=".admin.panel.QuestionActivity">
 
     <EditText
         android:id="@+id/questionTitle"
@@ -91,13 +91,6 @@
             android:layout_height="wrap_content"
             android:text="@string/_4" />
     </RadioGroup>
-
-
-    <CheckBox
-        android:id="@+id/showCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/show" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/uploadQuestionToList"

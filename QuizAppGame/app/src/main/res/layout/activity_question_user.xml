@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_of_question"
     android:orientation="vertical"
-    tools:context=".QuestionActivityUser">
+    tools:context=".user.panel.QuestionActivityUser">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -15,6 +15,7 @@
         android:elevation="15dp">
 
         <TextView
+            android:id="@+id/quizNameInGame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_question"

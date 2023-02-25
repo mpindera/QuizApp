@@ -12,26 +12,26 @@
         android:theme="@style/Theme.QuizAppGame"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityUser"
+            android:name=".user.panel.MainPanelUser"
             android:exported="false" />
         <activity
-            android:name=".QuestionActivityUser"
+            android:name=".user.panel.QuestionActivityUser"
             android:exported="false" />
         <activity
-            android:name=".QuestionActivity"
+            android:name=".admin.panel.QuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".account.login.LoginActivity"
             android:exported="true"
             android:theme="@style/AppBarStyle1" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".account.login.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainAdminPanel"
+            android:name=".admin.panel.MainAdminPanel"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".account.login.MainActivity"
             android:exported="true"
             android:theme="@style/AppBarStyle1">
             <intent-filter>

@@ -7,7 +7,7 @@
     android:background="@drawable/bc_register"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".RegisterActivity">
+    tools:context=".account.login.RegisterActivity">
 
 
     <LinearLayout
