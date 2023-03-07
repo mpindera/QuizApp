@@ -38,10 +38,6 @@ class MainPanelUser : AppCompatActivity() {
                     for (document in querySnapshot) {
                         val quiz = document.toObject(QuizModel::class.java)
 
-                        /*Log.d("test123", "2 document.toString()")
-                        Log.d("test123", "3 querySnapshot.toString()")
-                        Log.d("test123", "4 quizList.toString()")*/
-
                         if (quiz.getVisible()) {
                             quizList.add(quiz)
                         }

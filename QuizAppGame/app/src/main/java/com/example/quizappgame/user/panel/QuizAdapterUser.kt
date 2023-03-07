@@ -1,13 +1,16 @@
 package com.example.quizappgame.user.panel
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizappgame.admin.panel.QuizModel
 import com.example.quizappgame.R
+import com.example.quizappgame.admin.panel.QuizAdapter
 
 class QuizAdapterUser(
     private var items: List<QuizModel>
@@ -27,13 +30,13 @@ class QuizAdapterUser(
         quizNameToUser.text = items[position].getQuizName()
 
         val positionOfIDQuiz = items[position]
-
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, QuestionActivityUser::class.java)
             intent.putExtra("id", positionOfIDQuiz.getQuizID())
-            holder.itemView.context.startActivity(intent)
-        }
 
+            holder.itemView.context.startActivity(intent)
+
+        }
 
     }
 
